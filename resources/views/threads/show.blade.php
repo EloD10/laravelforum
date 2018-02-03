@@ -1,11 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+    <!-- Thread -->
     <div class="container">
         <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">
-                            {{$thread->title }}
+                        <a href="#"> {{ $thread->creator->name }}</a> posted :
+                        <strong>{{$thread->title }}</strong>
                     </h5>
                     <p class="card-text">
                         {{ $thread->body }}
@@ -14,23 +16,27 @@
         </div>
     </div>
 
-    @foreach ($thread->replies as $reply)
+    <!-- Replies -->
     <div class="container">
-        <div class="card" style="margin: 1em;">
-            <h5 class="card-header">
-                <a href="#">
-                    {{ $reply->owner->name }}
-                </a>
-                said {{ $reply->created_at->diffForHumans() }}...
-            </h5>
+        @foreach ($thread->replies as $reply)
+            @include('threads.reply')
+        @endforeach
 
-            <div class="card-body">
-                <p class="card-text">
-                    {{ $reply->body }}
-                </p>
-            </div>
-        </div>
+     <!-- Write a reply -->
+        @if (auth()->check())
+            <form method="POST" action="{{ $thread->path() . '/replies' }}">
+                {{ csrf_field() }}
+                <div class="form-group">
+                    <textarea name="body" class="form-control" rows="3" placeholder="Submit a reply"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        @else
+            <p>Please <a href="{{ route('login') }}">sign in</a> for submit replies</p>
+        @endif
+
     </div>
-    @endforeach
+
 
 @endsection
