@@ -18,9 +18,13 @@
 
     <!-- Replies -->
     <div class="container">
-        @foreach ($thread->replies as $reply)
+        @foreach ($replies as $reply)
             @include('threads.reply')
         @endforeach
+
+        {{ $replies->links() }}
+
+
 
      <!-- Write a reply -->
         @if (auth()->check())
