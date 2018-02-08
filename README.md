@@ -14,7 +14,7 @@ My training forum with Laravel 5.5
 - [ ] More filters like "favorite" and "popular"
 - [ ] Rewrite front-end and remove Bootstrap
 - [ ] Migrate to Laravel 5.6
-- [ ] Add Paginations
+- [x] Add Paginations
 - [ ] Meta Informations
 - [ ] Delete threads functionality
 - [ ] Vote for replies
@@ -25,4 +25,4 @@ My training forum with Laravel 5.5
 - [ ] Use front-end framework, VueJS is considered
 - [ ] Use Laravel Echo for real-time
 - [ ] Administration Panel
-- [ ] In a long future, i realy would like to rewrite this application in Rust with Rocket (or Actix) for up my skills
+- [ ] In a long future, i realy would like to rewrite this application in Rust with Rocket (or Actix) for up my skills in Rust and compare performance
