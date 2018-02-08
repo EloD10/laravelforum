@@ -34,6 +34,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/threads/create">New Thread</a>
                     </li>
+                    @if(auth()->check())
+                    <li class="nav-item">
+                        <a class="nav-link" href="/threads?by={{ auth()->user()->name }}">My Threads</a>
+                    </li>
+                    @endif
                 </ul>
 
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
