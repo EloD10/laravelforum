@@ -25,3 +25,4 @@ My training forum with Laravel 5.5
 - [ ] Use front-end framework, VueJS is considered
 - [ ] Use Laravel Echo for real-time
 - [ ] Administration Panel
+- [ ] In a long future, i realy would like to rewrite this application in Rust with Rocket (or Actix) for up my skills
