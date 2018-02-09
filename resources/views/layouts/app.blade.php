@@ -20,26 +20,26 @@
             <a class="navbar-brand" href="{{ url('/threads') }}">
                 {{ config('app.name', 'Laravel') }}
             </a>
-                <ul class="navbar-nav">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Channels
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            @foreach($channels as $channel)
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Channels
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        @foreach($channels as $channel)
                             <a class="dropdown-item" href="/threads/{{ $channel->slug }}">{{ $channel->name }}</a>
-                            @endforeach
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/threads/create">New Thread</a>
-                    </li>
-                    @if(auth()->check())
+                        @endforeach
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/threads/create">New Thread</a>
+                </li>
+                @if(auth()->check())
                     <li class="nav-item">
                         <a class="nav-link" href="/threads?by={{ auth()->user()->name }}">My Threads</a>
                     </li>
-                    @endif
-                </ul>
+                @endif
+            </ul>
 
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <ul class="navbar-nav">

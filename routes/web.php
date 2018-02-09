@@ -31,7 +31,6 @@ Route::post('/threads/{channel}/{thread}/replies', 'RepliesController@store');
 
 Route::get('/threads/{channel}', 'ThreadsController@index');
 
-//Route::resource('threads', 'ThreadsController');
 
 
 
