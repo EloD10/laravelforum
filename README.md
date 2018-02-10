@@ -2,6 +2,41 @@
 
 My training forum with Laravel 5.5
 
+## Use locally
+
+You must get [Composer](https://getcomposer.org/) in your PATH.
+
+```
+git clone https://github.com/EloD10/laravelforum.git
+cd laravelforum
+```
+
+Rename `.env.example` to `.env`.
+Configure your `.env` file :
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=mydatabase
+DB_USERNAME=root
+DB_PASSWORD=secret
+```
+
+Generate a new encryption key with this command: `php artisan key:generate`
+Copy and paste this new key to `APP_KEY=` in line 3 to the `env.` file.
+
+You can now access the the application. But we need to fill our database. 
+```
+php artisan migrate
+php artisan tinker
+$threads = factory('App\Thread', 50)->create();
+$threads->each(function ($thread) { factory('App\Replies', 10)->create(['thread_id' => $thread->id]); });
+```
+These commands will auto-generate and fill automatically your tables. 
+
+Finally ! You can launch the server with `php artisan serve`.
+You can see existing routes in the routes folder, try for example to go on the `/threads` route. And don't forget to create a user.
+
 ## TODO
 
 ### Near Future
@@ -17,7 +52,7 @@ My training forum with Laravel 5.5
 - [ ] Meta Informations in threads/replies (examples: "number of replies", etc... it's an improvement of the interface and his data)
 - [ ] Delete threads functionality
 - [ ] Vote for replies
-- [ ] Probably not use channels in a clickable dropdown but like a web interface/button like most of forum
+- [ ] Probably not use channels in a clickable dropdown but like a web interface/button like most of forums
 
 
 

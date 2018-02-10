@@ -26,24 +26,23 @@
         {{ $replies->links() }}
 
 
-
      <!-- Write a reply -->
         @if (auth()->check())
-        <div class="card card-default">
-            <div class="card-header">Write a response</div>
-            
-            <div class="card-body">
+        <hr>
+        <div class="form-group">
                 <form method="POST" action="{{ $thread->path() . '/replies' }}">
                     {{ csrf_field() }}
                     <div class="form-group">
-                        <textarea name="body" class="form-control" rows="3" placeholder="Submit a reply"></textarea>
+                        <textarea name="body" class="form-control" rows="3" placeholder="Write a response"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
                 @else
-                    <p>Please <a href="{{ route('login') }}">sign in</a> for submit replies</p>
+                    <div class="breadcrumb" style="margin: 1em;">
+                        <span>Please <a href="{{ route('login') }}">sign in</a> for submit replies</span>
+                    </div>
                 @endif
-            </div>
+
         </div>
 
 </div>

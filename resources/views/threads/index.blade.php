@@ -3,15 +3,18 @@
 @section('content')
 <div class="container" role="main">
     <div class="display-4">Forum</div>
-    <div class="card">
+
+    <div class="card card-default">
         @foreach ($threads as $thread)
-            <div class="card-body">
-                <h5 class="card-title">
+            <div class="card-header">
                     <a href="{{$thread->path() }}">
                         {{$thread->title }}
                     </a>
-                </h5>
-                <p class="card-text">{{ $thread->body }}</p>
+            </div>
+            <div class="card-body">
+                <p>
+                    {{ $thread->body }}
+                 </p>
             </div>
             <hr>
         @endforeach
