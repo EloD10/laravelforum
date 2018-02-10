@@ -1,6 +1,6 @@
 # laravelforum
 
-My training forum with Laravel 5.5
+My training forum with Laravel 5.6
 
 ## Use locally
 
@@ -52,7 +52,7 @@ You can see existing routes in the routes folder, try for example to go on the `
 - [ ] Meta Informations in threads/replies (examples: "number of replies", etc... it's an improvement of the interface and his data)
 - [ ] Delete threads functionality
 - [ ] Vote for replies
-- [ ] Probably not use channels in a clickable dropdown but like a web interface/button like most of forums
+- [ ] Probably not use channels in a clickable dropdown but like a web interface/button like most of forums (probably done during the front-end refactoring)
 
 
 
@@ -62,4 +62,4 @@ You can see existing routes in the routes folder, try for example to go on the `
 - [ ] Administration Panel
 - [ ] In a long future, i realy would like to rewrite this application in Rust with Rocket (or Actix) for up my skills in Rust and compare performance
 - [ ] Rewrite front-end style and remove Bootstrap and experiment with new CSS tools (not be limited by rétropcompatibilty), probably it will be done when i will use a front-end framework.
-
+- [ ] Use Oauth 2.0 with Laravel Passport
