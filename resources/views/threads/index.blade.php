@@ -6,7 +6,7 @@
     <article class="col-md-8">
         <div class="card flex-md-row mb-4 box-shadow h-md-250">
             <div class="card-body d-flex flex-column align-items-start">
-                <!-- <strong class="d-inline-block mb-2 text-success">Channel Name</strong> -->
+                <strong class="d-inline-block mb-2 text-success">{{ $thread->channel->name }}</strong>
                 <h3 class="mb-0">
                     <a class="text-dark" href="{{$thread->path() }}">{{ $thread->title }}</a>
                 </h3>

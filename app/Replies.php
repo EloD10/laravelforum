@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Replies extends Model
 {
     protected $guarded = [];
+    protected $with = ['owner', 'favorites'];
 
     public function owner()
     {
@@ -30,6 +31,6 @@ class Replies extends Model
 
     public function isFavorited()
     {
-        return $this->favorites()->where('user_id', auth()->id())->exists();
+        return !! $this->favorites->where('user_id', auth()->id())->count();
     }
 }
