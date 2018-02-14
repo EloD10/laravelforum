@@ -1,7 +1,7 @@
 <div class="card" style="margin: 1em;">
     <div class="card-header">
         <h5>
-            <a href="#">
+            <a href="{{route('profile', $reply->owner) }}">
                 {{ $reply->owner->name }}
             </a>
             said {{ $reply->created_at->diffForHumans() }}...

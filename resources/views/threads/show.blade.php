@@ -9,7 +9,7 @@
         <div class="col-8">
             <div class="card card-default">
                <div class="card-header">
-                        <a href="#"> {{ $thread->creator->name }}</a> posted :
+                        <a href="{{route('profile', $thread->creator) }}"> {{ $thread->creator->name }}</a> posted :
                         <strong>{{$thread->title }}</strong>
                     </div>
                     <div class="card-body">
