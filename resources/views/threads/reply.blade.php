@@ -15,8 +15,8 @@
                 <footer>
                 <form class="" method="POST" action="/replies/{{ $reply->id }}/favorites">
                     {{ csrf_field() }}
-                    <span class="badge badge-secondary">{{ $reply->favorites()->count() }}</span>
-                    <button type="submit" class="btn btn-outline-dark" {{ $reply->isFavorited() ? 'disabled' : '' }}>{{ str_plural('Favorite', $reply->favorites()->count()) }}</button>
+                    <span class="badge badge-secondary">{{ $reply->favorites_count }}</span>
+                    <button type="submit" class="btn btn-outline-primary" {{ $reply->favorites_count ? 'disabled' : '' }}>{{ str_plural('Favorite', $reply->favorites_count) }}</button>
                 </form>
                 </footer>
             </div>
@@ -29,9 +29,9 @@
                 </p>
                 <div>
                     {{ csrf_field() }}
-                    {{ $reply->favorites()->count() }}
+                    {{ $reply->favorites_count }}
                     <a href="{{ route('login') }}" class="badge badge-light">
-                        <button class="btn btn-default">{{ str_plural('Favorite', $reply->favorites()->count()) }}</button>
+                        <button class="btn btn-default">{{ str_plural('Favorite', $reply->$reply->favorites_count) }}</button>
                     </a>
                 </div>
             </div>
