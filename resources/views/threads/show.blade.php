@@ -18,12 +18,11 @@
                         </span>
                     </div>
             </div>
-            <!-- Replies -->
-            @foreach ($replies as $reply)
-                @include('threads.reply')
-            @endforeach
-
-            {{ $replies->links() }}
+        <!-- Replies -->
+        @foreach ($replies as $reply)
+            @include('threads.reply')
+        @endforeach
+        {{ $replies->links() }}
 
          <!-- Write a reply -->
             @if (auth()->check())

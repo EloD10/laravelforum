@@ -12,7 +12,7 @@ cd laravelforum
 ```
 
 Rename `.env.example` to `.env`.
-Configure your `.env` file :
+And configure your `.env` file :
 ```
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
@@ -26,7 +26,7 @@ Generate a new encryption key with this command: `php artisan key:generate`
 Copy and paste this new key to `APP_KEY=` in line 3 to the `env.` file.
 
 You can now access the the application. But we need to fill our database. 
-```
+```php
 php artisan migrate
 php artisan tinker
 $threads = factory('App\Thread', 50)->create();
