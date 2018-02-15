@@ -14,7 +14,7 @@
                 <p class="card-text mb-auto">{{ $thread->body }}</p>
                 <footer class="blockquote-footer"> {{ $thread->replies_count }} {{ str_plural('comment', $thread->replies_count) }}</footer>
             </div>
-            <a href="#">
+            <a href="{{route('profile', $thread->creator) }}">
                 <img class="card-img-right flex-auto d-none d-md-block" alt="image profile" style="width: 100px; height: 125px;" src="{{ asset('img/img_profile_min.png') }}">
             </a>
         </div>
