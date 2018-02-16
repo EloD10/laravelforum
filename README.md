@@ -25,14 +25,18 @@ DB_PASSWORD=secret
 Generate a new encryption key with this command: `php artisan key:generate`
 Copy and paste this new key to `APP_KEY=` in line 3 to the `env.` file.
 
-You can now access the the application. But we need to fill our database. 
+You can now access the the application. But we need to fill our database.
+The first option is to simply run this command :
+`php artisan db:seed --class=InitRepositery`
+
+Or, if you want to personalize how your repository will be mounting
 ```php
 php artisan migrate
 php artisan tinker
 $threads = factory('App\Thread', 50)->create();
 $threads->each(function ($thread) { factory('App\Replies', 10)->create(['thread_id' => $thread->id]); });
 ```
-These commands will auto-generate and fill automatically your tables. 
+These commands will auto-generate and fill automatically your tables.
 
 Finally ! You can launch the server with `php artisan serve`.
 You can see existing routes in the routes folder, try for example to go on the `/threads` route. And don't forget to create a user.
@@ -62,4 +66,4 @@ You can see existing routes in the routes folder, try for example to go on the `
 - [ ] Administration Panel
 - [ ] In a long future, i realy would like to rewrite this application in Rust with Rocket (or Actix) for up my skills in Rust and compare performance
 - [ ] Rewrite front-end style and remove Bootstrap and experiment with new CSS tools (not be limited by rétropcompatibilty), probably it will be done when i will use a front-end framework.
-- [ ] Use Oauth 2.0 with Laravel Passport
+
