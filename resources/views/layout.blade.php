@@ -15,11 +15,11 @@
                     <svg class="mr-2 fill-current text-blue-darker inline-block h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M8 20H3V10H0L10 0l10 10h-3v10h-5v-6H8v6z"/></svg>
                     Accueil
                 </a>
-                {{-- @if(auth()->check())
-                    <a href="#" class="mr-6 text-blue-darker no-underline font-bold text-xs flex items-center">
+                @if(auth()->check())
+                    <a href="/threads?by={{ auth()->user()->name }}" class="mr-6 text-blue-darker no-underline font-bold text-xs flex items-center">
                         Mes sujets
                     </a>
-                @endif --}}
+                @endif
                 @if(auth()->check() && auth()->user()->role === 1)
                     <a href="/channel/action/create" class="mr-6 text-blue-darker no-underline font-bold text-xs flex items-center">
                         Nouvelle catégorie

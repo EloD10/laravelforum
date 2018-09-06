@@ -6,9 +6,9 @@ use App\Thread;
 use App\Reply;
 use App\User;
 use App\Channel;
-use App\Filters\ThreadFilters;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Collection;
 
 class ThreadController extends Controller
 {
@@ -20,18 +20,27 @@ class ThreadController extends Controller
             'updateView', 'deleteFavorite', 'create', 'delete', 'store']);
     }
 
-    // TODO
-    // public function index(Channel $channel, ThreadFilters $filters)
-    // {
-    //     Paginator::defaultView('pagination::default');
+    // TODO generic solution
+    public function index()
+    {
+        Paginator::defaultView('pagination::default');
         
-    //     $threads = $this->getThreads($channel, $filters);
+        $user = new Collection();
+        $threads = new Collection();
+        if (request()->has('by')) {
+            $user = User::where('name', request('by'))->firstOrFail();
+        }
 
-    //     return view('thread.index', [
-    //         'threads' => $threads,
-    //     ]);
+        // if (request()->has('popular')) {
+        //     $threads = Thread::all()->paginate(15);
+        //     $threads->replies()->orderBy('replies_count', 'desc');
+        // }
+
+        return view('thread.index', [
+            'user' => $user,
+        ]);
         
-    // }
+    }
 
     public function indexOfOneThread() 
     {
