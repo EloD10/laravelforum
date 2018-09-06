@@ -78,7 +78,8 @@ class ChannelController extends Controller
         $channel = Channel::where('slug', request('slug'))->firstOrFail();
         $channel->update([
             'name' => request('name'),
-            'slug' => $slug
+            'slug' => $slug,
+            ''
         ]);
 
         flash('Catégorie mise à jour !')->success();

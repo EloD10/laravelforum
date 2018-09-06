@@ -2,7 +2,7 @@
 
 @section('content')
 
-<form method="post" class="container">
+<form method="post" class="container" id="form-confirmed">
     @csrf
 
     <div class="flex flex-col items-center">

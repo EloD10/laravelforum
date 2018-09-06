@@ -9,10 +9,11 @@
         @if(auth()->check())
             @if (auth()->user()->role === 1)
                 <div class="flex flex-wrap justify-end">
-                    <a href="/channel/action/{{ $channel->slug }}/update" class="bg-blue rounded no-underline text-blue-lightest text-sm font-semibold text-center p-1 shadow-inner hover:bg-blue-light hover:text-blue-darker mr-2">
+                    <a href="/channel/action/{{ $channel->slug }}/update" class="bg-blue rounded no-underline text-blue-lightest text-sm font-semibold text-center p-1 shadow-inner hover:bg-blue-light hover:text-blue-darker mr-2" id="confirmation-button">
                     Modifier
                     </a> 
-                    <form method="post" action="/channel/action/{{ $channel->slug }}/delete">
+                    {{-- <div class="bg-green absolute">Confirmation</div> --}}
+                    <form method="post" id="form-confirmed" action="/channel/action/{{ $channel->slug }}/delete">
                     @csrf
                     {{ method_field('DELETE') }}
                     <input name="channel_slug" value="{{ $channel->slug }}" type="hidden">

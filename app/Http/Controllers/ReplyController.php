@@ -30,7 +30,7 @@ class ReplyController extends Controller
     public function updateView()
     {
         $reply = Reply::where('id', request('reply_id'))->firstOrFail();
-        if ( !$reply->ownedByAuthUser(auth()->user()) && auth()->user()->role != 1) {
+        if (!$reply->ownedByAuthUser(auth()->user()) && auth()->user()->role != 1) {
             flash('Veuillez vous connecter !')->error();
             return redirect('/login');
         }
@@ -42,7 +42,7 @@ class ReplyController extends Controller
     {
         $reply = Reply::where('id', request('reply_id'))->firstOrFail();
 
-        if ( !$reply->ownedByAuthUser(auth()->user()) && auth()->user()->role != 1) {
+        if (!$reply->ownedByAuthUser(auth()->user()) && auth()->user()->role != 1) {
             flash('Veuillez vous connecter !')->error();
             return redirect('/login');
         }
@@ -56,13 +56,13 @@ class ReplyController extends Controller
         ]);
 
         flash('Message modifié !')->success();
-        return redirect('/thread/'.$reply->thread->id);
+        return redirect('/thread/' . $reply->thread->id);
     }
 
     public function delete()
     {
         $reply = Reply::where('id', request('reply_id'))->firstOrFail();
-        if ( !$reply->ownedByAuthUser(auth()->user()) && auth()->user()->role != 1) {
+        if (!$reply->ownedByAuthUser(auth()->user()) && auth()->user()->role != 1) {
             flash('Veuillez vous connecter !')->error();
             return redirect('/login');
         }
@@ -70,6 +70,6 @@ class ReplyController extends Controller
         $reply->delete();
 
         flash('Message supprimé !')->success();
-        return redirect('/thread/'.$reply->thread->id);
+        return redirect('/thread/' . $reply->thread->id);
     }
 }

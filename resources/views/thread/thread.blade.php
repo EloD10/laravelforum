@@ -21,7 +21,7 @@
             <a href="/thread/{{ $thread->id }}/update" class="bg-orange rounded no-underline text-orange-lightest text-sm font-semibold text-center shadow-inner hover:bg-orange-light hover:text-orange-darker py-2 px-2 my-2 mr-2">
               Modifier
             </a> 
-            <form method="post" action="/thread/{{ $thread->id }}/delete">
+            <form method="post" action="/thread/{{ $thread->id }}/delete" id="form-confirmed">
               @csrf
               {{ method_field('DELETE') }}
               <input name="thread_id" value="{{ $thread->id }}" type="hidden">
@@ -52,7 +52,7 @@
         <a href="/thread/{{ $thread->id }}/reply/{{ $reply->id }}/update" class="bg-blue hover:bg-blue-light mx-2 text-white h-6 p-1 border-b-2 border-blue-dark hover:border-blue rounded no-underline">
           Modifier
         </a> 
-        <form method="post" action="/thread/{{ $thread->id }}/reply/{{ $reply->id }}/delete">
+        <form method="post" action="/thread/{{ $thread->id }}/reply/{{ $reply->id }}/delete" id="form-confirmed">
           @csrf
           {{ method_field('DELETE') }}
           <input name="thread_id" value="{{ $thread->id }}" type="hidden">
