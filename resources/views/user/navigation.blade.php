@@ -8,7 +8,7 @@
 <nav class="h-12 bg-white shadow">
   <div class="container mx-auto h-12 flex items-center">
     <div class="w-1/4">
-      <a href="/dashboard" class="rounded-full h-16 w-16 flex items-center justify-center ml-4 text-dark no-underline">
+      <a id="ball" href="/dashboard" class="rounded-full h-16 w-16 flex items-center justify-center ml-4 text-dark no-underline">
         @if( isset($user->background))
           <img class=" rounded-full" src="/storage/{{ $user->avatar }}" alt="avatar">
         @else
@@ -33,7 +33,7 @@
       <ul class="p-0 flex items-center">
         @if (auth()->user()->role === 1)
             @if ($user->isModerator())
-              <form method="post" action="/user/{{ $user->id }}-{{ $user->name }}/action/role/member" class="flex flex-colpy-1 px-3 no-underline">
+              <form method="post" action="/user/{{ $user->id }}-{{ $user->name }}/action/role/member" class="flex flex-colpy-1 px-3 no-underline" id="form-confirmed">
                 @csrf
                 {{ method_field('put') }}
                 <button class="text-blue-darker font-bold text-xss hover:text-blue-light">Enlever les droits modéraeur</button>
@@ -41,13 +41,14 @@
             @elseif(auth()->user()->id == $user->id)
               {{-- Nothing --}}
             @else
-              <form method="post" action="/user/{{ $user->id }}-{{ $user->name }}/action/role/moderator" class="flex flex-colpy-1 px-3 no-underline">
+              <form method="post" action="/user/{{ $user->id }}-{{ $user->name }}/action/role/moderator" class="flex flex-colpy-1 px-3 no-underline" id="form-confirmed">
                 @csrf
                 {{ method_field('put') }}
                 <button class="text-blue-darker font-bold text-xss hover:text-blue-light">Promouvoir modérateur</button>
               </form>
             @endif
         @endif
+        @if ( !auth()->user()->id == $user->id )
         <form method="post" action="/user/{{ $user->id }}-{{ $user->name }}/favorite" class="flex flex-colpy-1 px-3 no-underline">
           @csrf
           @if (auth()->user()->hasFollowUser($user))
@@ -57,6 +58,7 @@
             <button class="text-blue-darker font-bold text-xss hover:text-blue-light">Suivre</button>
           @endif
         </form>
+        @endif
       </ul>
     </div>
     @endif

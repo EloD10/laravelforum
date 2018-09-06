@@ -6,7 +6,7 @@ let elements = document.querySelectorAll('#form-confirmed')
 elements.forEach(element => {
     element.addEventListener('submit', function(e) {
 
-        // cancel form submit
+        // cancel form submit for a moment
         e.preventDefault();
 
         swal("Êtes vous sûr de faire ceci ?", {

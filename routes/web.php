@@ -53,7 +53,7 @@ Route::post('/channel/action/{slug}/favorite', 'ChannelController@favorite');
 Route::delete('/channel/action/{slug}/favorite', 'ChannelController@deleteFavorite');
 
 
-Route::get('/thread', 'ThreadController@index');
+Route::get('/threads', 'ThreadController@index');
 Route::get('/thread/{id}', 'ThreadController@indexOfOneThread');
 Route::post('/thread/{id}', 'ReplyController@store');
 Route::delete('/thread/{id}/delete', 'ThreadController@delete');

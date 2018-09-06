@@ -21,17 +21,17 @@ class ThreadController extends Controller
     }
 
     // TODO
-    public function index(Request $request)
-    {
-        Paginator::defaultView('pagination::default');
+    // public function index(Channel $channel, ThreadFilters $filters)
+    // {
+    //     Paginator::defaultView('pagination::default');
         
-        $threads = ThreadFilters::apply($request);
+    //     $threads = $this->getThreads($channel, $filters);
 
-        return view('thread.index', [
-            'threads' => $threads,
-        ]);
+    //     return view('thread.index', [
+    //         'threads' => $threads,
+    //     ]);
         
-    }
+    // }
 
     public function indexOfOneThread() 
     {

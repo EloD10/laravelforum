@@ -5,7 +5,9 @@ namespace App;
 use App\Channel;
 use App\Reply;
 use App\User;
+use App\Filters\Filters;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class Thread extends Model
 {
@@ -37,9 +39,5 @@ class Thread extends Model
         
         return false;
     }
-    
-    public function scopeFilter(Builder $builder, $request)
-    {
-        return (new ProductFilter($request))->filter($builder);
-    }
+
 }

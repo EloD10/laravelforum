@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet"> -->
-    {{-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> --}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 </head>
@@ -16,11 +15,11 @@
                     <svg class="mr-2 fill-current text-blue-darker inline-block h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M8 20H3V10H0L10 0l10 10h-3v10h-5v-6H8v6z"/></svg>
                     Accueil
                 </a>
-                @if(auth()->check())
+                {{-- @if(auth()->check())
                     <a href="#" class="mr-6 text-blue-darker no-underline font-bold text-xs flex items-center">
                         Mes sujets
                     </a>
-                @endif
+                @endif --}}
                 @if(auth()->check() && auth()->user()->role === 1)
                     <a href="/channel/action/create" class="mr-6 text-blue-darker no-underline font-bold text-xs flex items-center">
                         Nouvelle catégorie
@@ -72,6 +71,5 @@
     </div>
 
     <script src="{{ mix('js/personalize.js') }}"></script>
-
 </body>
 </html>
