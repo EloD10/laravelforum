@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="flex flex-col">
-  <div class="flex justify-between w-full text-blue-darker font-semibold p-4 mt-4 bg-white shadow rounded-lg text-xl">
+  <div class="flex justify-between w-full text-blue-darker font-semibold p-4 mt-4 bg-blue-lighter shadow rounded-lg text-xl">
     <div class="m-2 capitalize">{{ $thread->title }}</div>
       <div class="w-6/6 flex">
         @if (auth()->check())
@@ -35,13 +35,14 @@
       </div>
     @endif
   </div>
-  <div class="text-blue-darker font-semibold p-4 py-4 mt-2 bg-white shadow rounded-lg">
+
+</div>
+  <div class="text-blue-darker font-semibold p-4 py-4 mt-2 shadow bg-blue-lighter rounded-lg">
     <div class="text-sm p-4">{{ $thread->body }}</div>
-    <div class="mt-8">
-      <a href="/user/{{ $thread->user->id }}-{{ $thread->user->name }}" class="text-blue px-1 border-t border-blue-darker text-sm w-1/3 pr-4">{{ $thread->user->name }}</a>
+    <div class="mt-8 mr-32 border-t-2 border-blue-darker">
+      <a href="/user/{{ $thread->user->id }}-{{ $thread->user->name }}" class="text-blue px-1 text-sm w-1/3 pr-4">{{ $thread->user->name }}</a>
     </div>
   </div>
-</div>
 
 @foreach ($thread->replies as $reply)
   <div class="flex flex-col mt-4 p-4 rounded shadow-inner text-sm text-blue-dark bg-white hover:bg-blue-lighter">
